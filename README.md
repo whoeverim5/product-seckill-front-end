@@ -5,7 +5,7 @@
 ```
 一款银行产品秒杀系统
 
-目前设计技术框架有：
+目前涉及到的技术框架有：
 Spring Security
 Spring Data (Redis)
 SpringBoot
