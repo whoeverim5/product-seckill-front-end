@@ -1,6 +1,5 @@
 <template>
   <div class="login-container">
-    <h2>用户登录</h2>
     <div class="login-box">
       <input type="text" required v-model="username">
       <label>用户名</label>
