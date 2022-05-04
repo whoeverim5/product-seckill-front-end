@@ -15,7 +15,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.path === '/home') {
-        const token = sessionStorage.getItem('token');
+        const token = localStorage.getItem('token');
         if (token) {
             next();
         } else {

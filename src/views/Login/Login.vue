@@ -1,7 +1,14 @@
 <template>
   <div class="login-container">
+    <var-snackbar
+        :show.sync="show"
+        :type="type"
+        :duration="1000"
+    > {{ message }}
+    </var-snackbar>
+    <h2>用户登录</h2>
     <div class="login-box">
-      <input type="text" required v-model="username">
+      <input type="text" required v-model="account">
       <label>用户名</label>
     </div>
     <div class="login-box">
@@ -21,28 +28,39 @@
 <script>
 import '@/assets/css/login.less';
 import {login} from '@/api/loginAPI/login';
-import {msg} from '@/utils/message';
 
 export default {
   name: 'Login',
   data() {
     return {
-      username: '',
+      account: '',
       password: '',
+      show: false,
+      message: '',
+      type: 'success',
     };
+  },
+  create() {
   },
   methods: {
     async login() {
-      if (this.username && this.password) {
-        const {data: res} = await login(this.username, this.password);
+      if (this.account && this.password) {
+        const {data: res} = await login(this.account, this.password);
+        console.log(res);
         if (res.status === 200) {
-          msg.success('登录成功');
+          const token = 'Bearer ' + res.data;
+          localStorage.setItem('token', token);
+          this.$router.push('/home');
         } else {
-          msg.error('登录失败');
+          this.show = !this.show;
+          this.message = '用户名或密码错误';
+          this.type = 'error';
         }
       } else {
-        msg.warning('用户名或密码不能为空');
-        this.username = '';
+        this.show = !this.show;
+        this.message = '请输入用户名或密码';
+        this.type = 'warning';
+        this.account = '';
         this.password = '';
       }
     },

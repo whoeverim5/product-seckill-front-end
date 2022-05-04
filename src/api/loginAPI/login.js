@@ -1,8 +1,8 @@
 import request from '@/utils/request';
 
-export const login = function (username, password) {
+export const login = function (account, password) {
     return request({
-        url: '/customers/' + username + '/' + password,
+        url: '/customers/' + account + '/' + password,
         method: 'get',
     });
 };

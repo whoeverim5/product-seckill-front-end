@@ -1,5 +1,6 @@
 <template>
-
+  <div class="Home-container">
+  </div>
 </template>
 
 <script>
