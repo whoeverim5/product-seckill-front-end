@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-const message = {
+export const msg = {
     success: (msg) => {
         Vue.prototype.$message.success(msg);
     },
@@ -13,7 +13,4 @@ const message = {
     info: (msg) => {
         Vue.prototype.$message.info(msg);
     },
-
 };
-
-export default message;

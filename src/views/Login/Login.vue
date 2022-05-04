@@ -22,7 +22,7 @@
 <script>
 import '@/assets/css/login.less';
 import {login} from '@/api/loginAPI/login';
-import msg from '@/utils/message';
+import {msg} from '@/utils/message';
 
 export default {
   name: 'Login',
@@ -31,9 +31,6 @@ export default {
       username: '',
       password: '',
     };
-  },
-  created() {
-    console.log(this);
   },
   methods: {
     async login() {
