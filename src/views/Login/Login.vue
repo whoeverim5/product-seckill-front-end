@@ -9,7 +9,7 @@
       <input type="password" required v-model="password">
       <label>密码</label>
     </div>
-    <a href="javascript:void(0)" @click.prevent="login">
+    <a href="#" @click.prevent="login">
       登录
       <span></span>
       <span></span>
@@ -21,6 +21,7 @@
 
 <script>
 import '@/assets/css/login.less';
+import {getAllCustomer} from '@/api/loginAPI/login';
 
 export default {
   name: 'Login',
@@ -31,9 +32,18 @@ export default {
     };
   },
   methods: {
-    login() {
-      console.log('login...');
-    }
+    async login() {
+      if (this.username && this.password) {
+        const {data: res} = await getAllCustomer(this.username, this.password);
+        if (res.status === 200) {
+          this.$message.success('登录成功！');
+        } else {
+          this.$message.error('登录失败');
+        }
+      } else {
+        this.$message.warning('用户名或密码不能为空');
+      }
+    },
   },
 };
 </script>
