@@ -7,9 +7,18 @@
 
 目前涉及到的技术框架有：
 Spring Security
-Spring Data (Redis)
+Spring Data
 SpringBoot
 VUE.js
+Axois
+Varlet
+Redis
+Mysql
+vue-router
+fastjson
+JWT
+Mybatis-Plus
+Less
 ```
 
 ## Project setup
