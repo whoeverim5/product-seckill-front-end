@@ -1,0 +1,142 @@
+.login-container {
+  h2 {
+    color: #fff;
+    margin-bottom: 30px;
+  }
+
+  .login-box {
+    position: relative;
+    width: 100%;
+
+    input {
+      outline: none;
+      border: none;
+      width: 100%;
+      padding: 10px 0;
+      color: #fff;
+      font-size: 16px;
+      border-bottom: 1px solid #fff;
+      margin-bottom: 30px;
+      background-color: transparent;
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      color: #fff;
+      pointer-events: none;
+      transition: all 0.5s;
+    }
+
+    input:focus + label,
+    input:valid + label {
+      top: -20px;
+      color: #03e9f4;
+      font-size: 12px;
+    }
+
+  }
+
+  a {
+    overflow: hidden;
+    position: relative;
+    padding: 10px 20px;
+    color: #03e9f4;
+    text-decoration: none;
+    transition: all 0.5s;
+
+    span {
+      position: absolute;
+    }
+
+    span:first-child {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent,
+      #03e9f4);
+      animation: move1 1s linear infinite;
+    }
+
+    span:nth-child(2) {
+      right: 0;
+      top: -100%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(transparent, #03e9f4);
+      animation: move2 1s linear 0.25s infinite;
+    }
+
+    span:nth-child(3) {
+      right: -100%;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to left, transparent, #03e9f4);
+      animation: move3 1s linear 0.5s infinite;
+    }
+
+    span:nth-child(4) {
+      left: 0;
+      bottom: -100%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(#03e9f4, transparent);
+      animation: move4 1s linear 0.75s infinite;
+    }
+  }
+
+  a:hover {
+    color: #fff;
+    border-radius: 5px;
+    background-color: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+
+  }
+}
+
+@keyframes move1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes move3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes move4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
