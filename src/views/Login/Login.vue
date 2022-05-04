@@ -21,7 +21,7 @@
 
 <script>
 import '@/assets/css/login.less';
-import {getAllCustomer} from '@/api/loginAPI/login';
+import {login} from '@/api/loginAPI/login';
 import msg from '@/utils/message';
 
 export default {
@@ -38,7 +38,7 @@ export default {
   methods: {
     async login() {
       if (this.username && this.password) {
-        const {data: res} = await getAllCustomer(this.username, this.password);
+        const {data: res} = await login(this.username, this.password);
         if (res.status === 200) {
           msg.success('登录成功');
         } else {
