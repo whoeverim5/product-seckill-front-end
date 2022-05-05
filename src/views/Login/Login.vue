@@ -40,8 +40,6 @@ export default {
       type: 'success',
     };
   },
-  create() {
-  },
   methods: {
     async login() {
       if (this.account && this.password) {
@@ -49,16 +47,16 @@ export default {
         console.log(res);
         if (res.status === 200) {
           const token = 'Bearer ' + res.data;
-          localStorage.setItem('token', token);
+          sessionStorage.setItem('token', token);
           this.$router.push('/home');
         } else {
           this.show = !this.show;
-          this.message = '用户名或密码错误';
+          this.message = res.message;
           this.type = 'error';
         }
       } else {
         this.show = !this.show;
-        this.message = '请输入用户名或密码';
+        this.message = res.message;
         this.type = 'warning';
         this.account = '';
         this.password = '';
