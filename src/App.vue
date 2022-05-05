@@ -3,18 +3,15 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
-  components: {
-  },
+  components: {},
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
 <style lang="less" scoped>
-
 </style>
